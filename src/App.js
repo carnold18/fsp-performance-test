@@ -1,24 +1,30 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Player from './Player.js'
+import players from './players.js'
 import './App.css';
-import './people_data';
 
 class App extends Component {
 
+  generatePlayers = () => {
+    return players.map((player) =>
+      <Player 
+      team_name={player.team_name}
+      name={player.name}
+      image={player.image}
+      ind_points={player.ind_points}
+      total_points={player.total_points}
+      />
+    );
+  }
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div id="player-list">
+        {this.generatePlayers()}
       </div>
-    );
+    )
   }
+
 }
 
 export default App;
