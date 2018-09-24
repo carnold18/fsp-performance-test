@@ -5,9 +5,14 @@ import PlayerDetails from './PlayerDetails.js';
 class Player extends Component {
 
     state = {
+        showDetails: false,
         infoState: false
     }
 
+    handleToggle = () => {
+      this.setState( { showDetails: !this.state.showDetails })
+    }
+        
 
     render() {
 
@@ -19,21 +24,19 @@ class Player extends Component {
         }
 
       return (
-        <div className="ui card">
-            <div className="content">
-                <PlayerInfo name={this.props.name} image={this.props.image} team_name={this.props.team_name} />
-                <button onClick={displayDetails}>Player Stats!</button>
-                {infoState ? (
-                    <div>
-                    <PlayerDetails ind_points={this.props.ind_points} total_points={this.props.total_points} />
-                    </div>
-                ) : null}
+
+        <div className="player" onClick={this.handleToggle}>
+          <PlayerInfo name={this.props.name} image={this.props.image} team_name={this.props.team_name} />
+          { this.state.showDetails ?
+            <div>
+              <PlayerDetails ind_points={this.props.ind_points} total_points={this.props.total_points} />
             </div>
+          : null}
         </div>
       )
     }
   }
-  
+
   //Player.defaultProps = {}
-  
+
   export default Player;
