@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div id="player-list">
+      <div className="App">
         {this.generatePlayers()}
       </div>
     )
