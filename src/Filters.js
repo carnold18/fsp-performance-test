@@ -7,6 +7,7 @@ function Filters(props){
       <select onChange={(event) =>{
         props.onSortChange(event.target.value)
       }}>
+        <option>TeamDefault</option>
         <option>Name</option>
         <option>PlayerPoints</option>
       </select>

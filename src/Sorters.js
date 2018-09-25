@@ -8,9 +8,17 @@ class Sorters {
         if (nameA > nameB) {
           return 1;
         }
-
-        // names must be equal
         return 0;
+    }
+
+    static byPoints(a, b) {
+        if (a.ind_points < b.ind_points) {
+          return -1;
+        }
+        if (a.ind_points > b.ind_points) {
+          return 1;
+        }
+        return 0
     }
 
 }

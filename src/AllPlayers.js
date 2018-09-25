@@ -6,7 +6,7 @@ import Filters from './Filters.js'
 class AllPlayers extends Component {
 
     state = {
-        sortBy: 'Name',
+        sortBy: 'TeamDefault',
         filterBy: 'None'
     }
 
@@ -20,14 +20,15 @@ class AllPlayers extends Component {
 
     getPlayers = () => {
         let resultingPlayers = [ ...this.props.players ]
-        // if(this.state.sortBy == 'None'){
-        //     resultingPlayers = this.generateNormalPlayerView()
-        //   }
+
         if(this.state.sortBy === 'Name'){
             resultingPlayers = resultingPlayers.sort(Sorters.byName)
         }
         if(this.state.sortBy === 'PlayerPoints'){
-            resultingPlayers = resultingPlayers.sort(Sorters.byWeight)
+            resultingPlayers = resultingPlayers.sort(Sorters.byPoints)
+        }
+        if(this.state.sortBy === 'TeamDefault'){
+            return resultingPlayers
         }
         return resultingPlayers
     }

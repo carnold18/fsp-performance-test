@@ -26,6 +26,5 @@ class Player extends Component {
     }
   }
 
-  //Player.defaultProps = {}
 
   export default Player;
